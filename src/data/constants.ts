@@ -310,13 +310,12 @@ export const EXPERIENCE: Experience[] = [
   {
     id: 1,
     startDate: "Feb 2026",
-    endDate: "Mar 2026",
+    endDate: "Apr 2026",
     title: "Software Development Engineer (Intern)",
     company: "Xelron AI",
     description: [
-      "Contributed to authentication REST endpoints (sign-up, login, session refresh, validation) following team patterns for handlers and errors.",
-      "Tightened ORM queries on user/auth paths (fewer redundant calls, smaller selects), cutting response time by ~50% on the hot paths we touched.",
-      "Assisted with production debugging: reproduced failed logins and flaky sessions, added logging, and shipped small fixes through code review.",
+      "Shipped 4 authentication REST endpoints (sign-up, login, session refresh, validation) for the web app; tightened ORM queries on user/auth paths (fewer round-trips, smaller selects), cutting hot-path response time by ~50%; coordinated with frontend when request shapes changed.",
+      "Debugged production auth issues (failed logins, flaky sessions), added structured logging, and landed fixes through code review.",
     ],
     skills: [
       SkillNames.TS,
@@ -335,7 +334,7 @@ export const EXPERIENCE: Experience[] = [
     company: "Indian Institute of Information Technology, Sonepat",
     description: [
       "Coursework in Data Structures & Algorithms, DBMS, Operating Systems, and Computer Networks.",
-      "Solved 600+ LeetCode problems with a contest rating in the top 6%.",
+      "Solved 600+ LeetCode problems with a contest rating of 1800+.",
     ],
     skills: [SkillNames.JS, SkillNames.TS, SkillNames.REACT, SkillNames.NODEJS],
   },

@@ -10,7 +10,7 @@ import { LEETCODE_PROFILE } from "@/data/leetcode";
 
 const STATS = [
   { label: "LeetCode solved", value: "600+" },
-  { label: "Contest rating", value: "Top 6%" },
+  { label: "Contest rating", value: "1800+" },
   { label: "Projects shipped", value: "4+" },
 ];
 
@@ -29,7 +29,7 @@ const LeetCodeSection = () => {
             &amp; Algorithms
           </>
         }
-        desc="LeetCode — 600+ questions solved. Contest rating in the top 6%."
+        desc="LeetCode — 600+ questions solved. Contest rating 1800+."
         className="static mb-14"
       />
 

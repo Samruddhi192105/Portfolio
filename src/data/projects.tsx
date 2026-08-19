@@ -165,6 +165,30 @@ const PROJECT_SKILLS = {
   aiSDK: brand("Vercel AI SDK", "vercel-mono.svg"),
   anthropic: brand("Anthropic Claude", "anthropic-mono.svg"),
   mistral: brand("Mistral AI", "mistral-ai-mono.svg"),
+  gemini: {
+    title: "Gemini",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">G</span>,
+  },
+  sqlite: {
+    title: "SQLite",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">SQL</span>,
+  },
+  github: {
+    title: "GitHub REST",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">GH</span>,
+  },
+  oauth: {
+    title: "OAuth",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">Auth</span>,
+  },
   // Not in the thesvg registry — keep the text mark.
   nextIntl: {
     title: "next-intl",
@@ -223,11 +247,16 @@ export type Project = {
 };
 const projects: Project[] = [
   {
-    id: "repomind",
-    category: "AI repo intelligence",
-    title: "RepoMind",
-    src: "/assets/projects-screenshots/repomind/landing.png",
-    screenshots: ["landing.png", "repo.png", "chat.png", "features.png"],
+    id: "codeplanner",
+    category: "AI architecture briefing",
+    title: "CodePlanner",
+    src: "/assets/projects-screenshots/codeplanner/home-repo.png",
+    screenshots: [
+      "home-repo.png",
+      "home-plan.png",
+      "repo-traffic.png",
+      "repo-architecture.png",
+    ],
     skills: {
       frontend: [
         PROJECT_SKILLS.ts,
@@ -236,81 +265,91 @@ const projects: Project[] = [
         PROJECT_SKILLS.tailwind,
       ],
       backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.prisma,
-        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.github,
+        PROJECT_SKILLS.gemini,
         PROJECT_SKILLS.redis,
-        PROJECT_SKILLS.docker,
-        PROJECT_SKILLS.langchain,
+        PROJECT_SKILLS.sqlite,
+        PROJECT_SKILLS.oauth,
       ],
     },
-    live: "#",
-    github: "https://github.com/Ajyendu/RepoMind",
+    live: "https://code-planner.vercel.app",
+    github: "https://github.com/Ajyendu/CodePlanner",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            Dive into open source. Master any repo. Instantly.
+            Know your system scale. Or plan an app that does not exist yet.
           </TypographyP>
           <TypographyP className="font-mono ">
-            RepoMind turns any GitHub repository into an interactive AI knowledge
-            system. Instead of reading hundreds of files by hand, you chat with
-            the codebase, generate architecture diagrams, find security issues,
-            and map dependencies — all in the browser, with no local clone.
-            Analysis runs through GitHub APIs, full-file context reasoning, and
-            Gemini models.
+            CodePlanner is a Next.js briefing tool. Paste a public GitHub URL,
+            or write a few sentences about a new product and the load it must
+            take. It does not clone the repo — GitHub REST pulls the tree and
+            selected files into a ~180K-token Gemini window. The UI answers
+            like a briefing: traffic numbers, a map of who talks to whom, the
+            stack, security scoring, 2x/4x/8x scale-up paths, and a chat that
+            stays with that project.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
-          <TypographyH3 className="my-4 mt-8">What it does</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Two modes, one home</TypographyH3>
           <p className="font-mono mb-2">
-            Repo intelligence: understand a repo instantly, parse full files
-            (not tiny RAG chunks), and detect structure. Chat with code: ask
-            questions, locate logic across files, explain complex systems.
-            Architecture insights: diagrams and dependency flowcharts from real
-            source. Security: vulnerable deps, hardcoded secrets, risky
-            patterns. Developer insights: contribution patterns and top
-            repositories — fetched live via GitHub APIs.
+            Toggle <strong>REPO</strong> to paste <code>owner/repo</code> and
+            hit Read it — you get a source-backed briefing: daily/peak load,
+            security score, stack, architecture map, request workflow,
+            bottlenecks, and 2x / 4x / 8x changes. Toggle{" "}
+            <strong>NO REPO</strong> to describe a product and the traffic
+            (e.g. 20k DAU, 50 orders / min peak) — you get one recommended
+            architecture: who talks to whom, capacity for the traffic you
+            typed, stack, tables, building blocks, workflow, and how to deploy.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/repomind/home.png`,
-              `${BASE_PATH}/repomind/repo.png`,
-              `${BASE_PATH}/repomind/demo.png`,
-              `${BASE_PATH}/repomind/features.png`,
+              `${BASE_PATH}/codeplanner/home-repo.png`,
+              `${BASE_PATH}/codeplanner/home-plan.png`,
             ]}
           />
 
           <TypographyH3 className="my-4 mt-8">
-            Intelligence pipeline
+            Existing repo — traffic, safety, scale
           </TypographyH3>
           <p className="font-mono mb-2">
-            1. Fetch the repo and metadata through the GitHub API. 2. Index
-            every file into a structure graph. 3. Parse full files so imports
-            and module relationships stay intact. 4. Build a dependency graph of
-            how the system actually wires together. 5. Gemini reasons about
-            architecture, patterns, vulns, and dependency flow. 6. Insights
-            land as chat answers, diagrams, vulnerability reports, and repo
-            summaries.
+            The briefing is a vertical conversation of cards. Capacity is one
+            estimate shown three ways (daily, busy second, people at once) —
+            not three different guesses — with a confidence stamp and evidence
+            from the files. Security is a score out of 100 plus protections
+            already in source (Helmet, rate limits, httpOnly cookies) and
+            gaps. Architecture is a fan-out map (client, app, auth, database,
+            cache, storage) and a workflow for one request. Then three
+            bottlenecks and 2x / 4x / 8x cards with the change to make.
           </p>
           <SlideShow
             images={[
-              `${BASE_PATH}/repomind/chat.png`,
-              `${BASE_PATH}/repomind/cag.png`,
+              `${BASE_PATH}/codeplanner/repo-traffic.png`,
+              `${BASE_PATH}/codeplanner/repo-architecture.png`,
+              `${BASE_PATH}/codeplanner/repo-scale.png`,
             ]}
           />
 
-          <TypographyH3 className="my-4 mt-8">System architecture</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">
+            Greenfield plan — one architecture you could ship
+          </TypographyH3>
           <p className="font-mono mb-2">
-            Next.js UI for chat, architecture viz, and security reports. An API
-            layer orchestrates fetch, analysis, scanning, and cache. The
-            analysis engine parses context and calls Gemini; the security engine
-            runs static analysis plus a dependency scanner. Prisma persists
-            structured results; Redis cuts repeat analysis. Ships with Docker
-            Compose: PostgreSQL 16, Redis 7, and the Next.js app. Needs a GitHub
-            token and Gemini API key.
+            No scores, verdicts, or 2x/4x/8x ladders. You get a named
+            architecture, capacity sized to the traffic you typed, a suggested
+            stack, tables with fields, product-specific building blocks (live
+            maps, payments, realtime), a one-request workflow, and a deploy
+            pick. Chat, copy, and Save PDF keep the thread; GitHub OAuth
+            unlocks private repos, higher rate limits, and the last 24 visits
+            in SQLite. Redis caches repo indexes, blobs, and analyses so a
+            second look is cheap.
           </p>
-          <SlideShow images={[`${BASE_PATH}/repomind/login.png`]} />
+          <SlideShow
+            images={[
+              `${BASE_PATH}/codeplanner/plan-architecture.png`,
+              `${BASE_PATH}/codeplanner/plan-stack.png`,
+              `${BASE_PATH}/codeplanner/plan-workflow.png`,
+            ]}
+          />
         </div>
       );
     },

@@ -1,7 +1,7 @@
 const config = {
   title: "Ajyendu Chaudhary | Full-Stack Developer",
   description: {
-    long: "Explore the portfolio of Ajyendu Chaudhary, a full-stack developer specializing in TypeScript, Node.js, real-time web apps, and Generative AI. Discover RepoMind, HealthCura, Blah Blah, and more.",
+    long: "Explore the portfolio of Ajyendu Chaudhary, a full-stack developer specializing in TypeScript, Node.js, real-time web apps, and Generative AI. Discover CodePlanner, HealthCura, Blah Blah, and more.",
     short:
       "Portfolio of Ajyendu Chaudhary — full-stack developer building scalable backends, real-time apps, and GenAI products.",
   },
@@ -14,12 +14,12 @@ const config = {
     "Node.js",
     "React",
     "Next.js",
-    "RepoMind",
+    "CodePlanner",
     "HealthCura",
     "Blah Blah",
     "Generative AI",
-    "LangChain",
-    "RAG",
+    "Gemini",
+    "GitHub",
   ],
   author: "Ajyendu Chaudhary",
   email: "ajyenduc@gmail.com",
@@ -27,7 +27,7 @@ const config = {
 
   // GitHub stars button in the header — flagship project
   githubUsername: "Ajyendu",
-  githubRepo: "RepoMind",
+  githubRepo: "CodePlanner",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
