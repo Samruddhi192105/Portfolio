@@ -5,7 +5,7 @@ import * as React from "react";
 const KEY = "portfolio:site";
 
 const isLocal = (h: string) =>
-  h === "localhost" || h === "127.0.0.1" || h === "ajyendu.dev";
+  h === "localhost" || h === "127.0.0.1";
 
 // records the deployment hostname once per browser
 export default function Analytics() {
