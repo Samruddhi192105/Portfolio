@@ -58,7 +58,7 @@ export default function ResumeView() {
           className="aspect-[210/297] w-full overflow-hidden rounded-2xl bg-white shadow-xl"
         >
           <ResumeDoodle
-            src={`${RESUME_PATH}#toolbar=0&navpanes=0&view=FitH`}
+            src={RESUME_PATH}
             title="Samruddhi Ghawade — Résumé"
           />
         </motion.div>
