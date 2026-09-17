@@ -10,7 +10,7 @@ import { LEETCODE_PROFILE } from "@/data/leetcode";
 
 const STATS = [
   { label: "LeetCode solved", value: "180+" },
-  { label: "Projects shipped", value: "3" },
+  { label: "Coding platforms", value: "2" },
 ];
 
 const LeetCodeSection = () => {
@@ -34,18 +34,40 @@ const LeetCodeSection = () => {
 
       <div className="pointer-events-auto mx-auto w-full max-w-5xl space-y-8">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {STATS.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-2xl border border-border/60 bg-secondary/20 p-6 backdrop-blur-sm"
-            >
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                {stat.label}
-              </p>
-              <p className="mt-2 font-display text-3xl md:text-4xl">{stat.value}</p>
-            </div>
-          ))}
-        </div>
+  {STATS.map((stat) => (
+    <div
+      key={stat.label}
+      className="rounded-2xl border border-border/60 bg-secondary/20 p-6 backdrop-blur-sm"
+    >
+      <p className="text-xs uppercase tracking-widest text-muted-foreground">
+        {stat.label}
+      </p>
+      <p className="mt-2 font-display text-3xl md:text-4xl">
+        {stat.value}
+      </p>
+    </div>
+  ))}
+
+  <Link
+    href="/certificates/nptel-dsa-java.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group rounded-2xl border border-border/60 bg-secondary/20 p-6 backdrop-blur-sm transition-all hover:bg-secondary/40"
+  >
+    <p className="text-xs uppercase tracking-widest text-muted-foreground">
+      NPTEL Certification
+    </p>
+
+    <p className="mt-2 font-display text-xl md:text-2xl">
+      DSA in Java
+    </p>
+
+    <p className="mt-2 text-sm text-muted-foreground">
+      View Certificate
+      <ArrowUpRight className="ml-1 inline size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    </p>
+  </Link>
+</div>
 
         <div className="flex justify-center">
           <Button asChild variant="outline" className="gap-2">
