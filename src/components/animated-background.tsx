@@ -13,10 +13,59 @@ import { Section, getKeyboardState } from "./animated-background-config";
 import { useSounds } from "./realtime/hooks/use-sounds";
 import { usePerfProfile } from "@/hooks/use-perf-profile";
 
-/** Spline object names that exist as keycaps. GCP and Socket.IO are not shown. */
-const KEYBOARD_SKILLS = Object.values(SKILLS).filter(
-  (skill) => skill.name !== SkillNames.GCP && skill.name !== SkillNames.FIREBASE
-);
+/**
+ * Skills displayed on the Spline keyboard keycaps.
+ * Keep the order here aligned with the keycaps available in the Spline scene.
+ */
+const KEYBOARD_SKILLS: Skill[] = [
+  // Languages
+  SKILLS[SkillNames.JAVA],
+  SKILLS[SkillNames.JAVASCRIPT],
+  SKILLS[SkillNames.CPP],
+  SKILLS[SkillNames.PYTHON],
+
+  // Frontend
+  SKILLS[SkillNames.HTML],
+  SKILLS[SkillNames.CSS],
+  SKILLS[SkillNames.REACT],
+  SKILLS[SkillNames.NEXTJS],
+  SKILLS[SkillNames.TAILWIND],
+
+  // Backend
+  SKILLS[SkillNames.NODEJS],
+  SKILLS[SkillNames.EXPRESS],
+  SKILLS[SkillNames.SPRINGBOOT],
+  SKILLS[SkillNames.RESTAPIS],
+
+  // Databases
+  SKILLS[SkillNames.POSTGRESQL],
+  SKILLS[SkillNames.MYSQL],
+  SKILLS[SkillNames.MONGODB],
+  SKILLS[SkillNames.SUPABASE],
+
+  // Tools / DevOps
+  SKILLS[SkillNames.DOCKER],
+  SKILLS[SkillNames.MAVEN],
+  SKILLS[SkillNames.GIT],
+  SKILLS[SkillNames.GITHUB],
+  SKILLS[SkillNames.GITHUBACTIONS],
+  SKILLS[SkillNames.VERCEL],
+
+  // AI / GenAI
+  SKILLS[SkillNames.OLLAMA],
+  SKILLS[SkillNames.GEMINI],
+  SKILLS[SkillNames.LLMINTEGRATION],
+  SKILLS[SkillNames.RAG],
+  SKILLS[SkillNames.CLIP],
+  SKILLS[SkillNames.DENSEPOSE],
+  SKILLS[SkillNames.OPENCV],
+
+  // Development tools
+  SKILLS[SkillNames.VSCODE],
+  SKILLS[SkillNames.CURSOR],
+  SKILLS[SkillNames.FIGMA],
+  SKILLS[SkillNames.CANVA],
+];
 
 type SplineColor = {
   r?: number;

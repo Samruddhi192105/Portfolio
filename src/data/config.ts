@@ -1,44 +1,46 @@
 const config = {
-  title: "Ajyendu Chaudhary | Full-Stack Developer",
+  title: "Samruddhi Ghawade | Full-Stack Developer | Backend Engineer | Generative AI Enthusiast",
   description: {
-    long: "Explore the portfolio of Ajyendu Chaudhary, a full-stack developer specializing in TypeScript, Node.js, real-time web apps, and Generative AI. Discover CodePlanner, HealthCura, Blah Blah, and more.",
+    long: "Explore the portfolio of Samruddhi Ghawade, a Computer Science Engineering student and full-stack developer building scalable web applications, backend systems, and AI-powered products.",
     short:
-      "Portfolio of Ajyendu Chaudhary — full-stack developer building scalable backends, real-time apps, and GenAI products.",
+      "Portfolio of Samruddhi Ghawade — full-stack developer building web applications, backend systems, and AI-powered products.",
   },
   keywords: [
-    "Ajyendu",
-    "Ajyendu Chaudhary",
+    "Samruddhi",
+    "Samruddhi Ghawade",
     "portfolio",
     "full-stack developer",
-    "TypeScript",
-    "Node.js",
+    "backend developer",
+    "Java",
+    "Spring Boot",
+    "JavaScript",
     "React",
     "Next.js",
-    "CodePlanner",
-    "HealthCura",
-    "Blah Blah",
+    "PostgreSQL",
+    "Docker",
     "Generative AI",
-    "Gemini",
+    "AI",
     "GitHub",
+    "LeetCode",
   ],
-  author: "Ajyendu Chaudhary",
-  email: "ajyenduc@gmail.com",
-  site: "https://ajyendu.dev",
+  author: "Samruddhi Ghawade",
+  email: "ghawadesamruddhi19@gmail.com",
+  site: "http://localhost:3000",
 
   // GitHub stars button in the header — flagship project
-  githubUsername: "Ajyendu",
-  githubRepo: "CodePlanner",
+  githubUsername: "Samruddhi192105",
+  githubRepo: "ai-sql-generator",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
   },
   social: {
     twitter: "",
-    linkedin: "",
-    instagram: "",
+    linkedin: "https://www.linkedin.com/in/samruddhi-ghawade-967744327/",
+    instagram: "https://www.instagram.com/samruddhighawade/",
     facebook: "",
-    github: "https://github.com/Ajyendu",
-    leetcode: "https://leetcode.com/u/ajyendu",
+    github: "https://github.com/Samruddhi192105",
+    leetcode: "https://leetcode.com/u/Samruddhi_Gh/",
   },
 };
 export { config };

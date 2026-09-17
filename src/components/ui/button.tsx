@@ -1,14 +1,9 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-
 import { cn } from "@/lib/utils";
 import {
-  Children,
-  cloneElement,
   forwardRef,
-  isValidElement,
   type ButtonHTMLAttributes,
-  type ReactNode,
 } from "react";
 
 const buttonVariants = cva(
@@ -41,43 +36,25 @@ export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  children?: ReactNode;
 }
 
-const addClassNameRecursively = (
-  children: ReactNode,
-  className: string
-): ReactNode => {
-  const foo = (child: ReactNode) => {
-    if (!isValidElement(child)) return child;
-
-    const childProps = child.props as Record<string, unknown>;
-    return cloneElement(child, {
-      className: `${(childProps.className as string) || ""} ${className}`.trim(),
-      children: addClassNameRecursively(childProps.children as ReactNode, className),
-    } as Record<string, unknown>);
-  };
-  return Children.map(children, foo);
-};
-
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
+
     return (
       <Comp
         className={cn(
           buttonVariants({ variant, size, className }),
-          "cursor-can-hover"
+          "cursor-pointer"
         )}
         ref={ref}
         {...props}
-      >
-        {/* add pointer-events-none to every child recursively */}
-        {addClassNameRecursively(children, "pointer-events-none")}
-      </Comp>
+      />
     );
   }
 );
+
 Button.displayName = "Button";
 
 export { Button, buttonVariants };

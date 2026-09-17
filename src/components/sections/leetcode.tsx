@@ -9,9 +9,8 @@ import { Button } from "../ui/button";
 import { LEETCODE_PROFILE } from "@/data/leetcode";
 
 const STATS = [
-  { label: "LeetCode solved", value: "600+" },
-  { label: "Contest rating", value: "1800+" },
-  { label: "Projects shipped", value: "4+" },
+  { label: "LeetCode solved", value: "180+" },
+  { label: "Projects shipped", value: "3" },
 ];
 
 const LeetCodeSection = () => {
@@ -29,7 +28,7 @@ const LeetCodeSection = () => {
             &amp; Algorithms
           </>
         }
-        desc="LeetCode — 600+ questions solved. Contest rating 1800+."
+        desc="LeetCode — 180+ questions solved."
         className="static mb-14"
       />
 

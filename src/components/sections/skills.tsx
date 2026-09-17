@@ -74,8 +74,8 @@ const SkillsSection = () => {
         title="Tech Stack"
         desc={
           withKeyboard
-            ? "Hover a keycap, or read the stack by category below."
-            : "Languages, frontend, backend, databases, and tools."
+            ? "See the skills I use."
+            : "See the skills I use. The 3D keyboard is disabled on your device."
         }
         className={withKeyboard ? "mb-24 md:mb-40" : "static mb-14"}
       />

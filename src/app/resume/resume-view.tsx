@@ -7,7 +7,7 @@ import { Download, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ResumeDoodle from "./resume-doodle";
 
-const RESUME_PATH = "/Ajyendu_Chaudhary_Resume.pdf";
+const RESUME_PATH = "/Samruddhi_Ghawade_Resume.pdf";
 
 export default function ResumeView() {
   return (
@@ -59,7 +59,7 @@ export default function ResumeView() {
         >
           <ResumeDoodle
             src={`${RESUME_PATH}#toolbar=0&navpanes=0&view=FitH`}
-            title="Ajyendu Chaudhary — Résumé"
+            title="Samruddhi Ghawade — Résumé"
           />
         </motion.div>
       </div>

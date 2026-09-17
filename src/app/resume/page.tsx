@@ -1,9 +1,9 @@
 import ResumeView from "./resume-view";
 
 export const metadata = {
-  title: "Résumé | Ajyendu Chaudhary",
+  title: "Résumé | Samruddhi Ghawade",
   description:
-    "Résumé of Ajyendu Chaudhary — Full-Stack Developer. View online or download the PDF.",
+    "Résumé of Samruddhi Ghawade — Full-Stack Developer. View online or download the PDF.",
 };
 
 export default function ResumePage() {

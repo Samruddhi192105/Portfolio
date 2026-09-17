@@ -51,7 +51,7 @@ const HeroSection = () => {
                       <h1
                         className={cn(
                           "-ml-[6px] leading-none text-transparent text-slate-800 text-left",
-                          "font-bold text-7xl md:text-7xl lg:text-8xl xl:text-9xl",
+                          "font-bold text-5xl md:text-6xl lg:text-6xl xl:text-8xl",
                           "cursor-default text-edge-outline font-display "
                         )}
                       >
@@ -76,7 +76,7 @@ const HeroSection = () => {
                       "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    Full-stack developer · TypeScript · GenAI
+                    Full-stack developer · Java · React · Spring Boot · Generative AI
                   </p>
                 </BlurIn>
               </div>
