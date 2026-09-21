@@ -161,6 +161,7 @@ const projects: Project[] = [
       `${BASE_PATH}/ai-sql-generator/1.png`,
       `${BASE_PATH}/ai-sql-generator/2.png`,
       `${BASE_PATH}/ai-sql-generator/3.png`,
+      `${BASE_PATH}/ai-sql-generator/4.png`,
     ],
 
     skills: {
@@ -226,6 +227,7 @@ const projects: Project[] = [
               `${BASE_PATH}/ai-sql-generator/1.png`,
               `${BASE_PATH}/ai-sql-generator/2.png`,
               `${BASE_PATH}/ai-sql-generator/3.png`,
+              `${BASE_PATH}/ai-sql-generator/4.png`,
             ]}
           />
 

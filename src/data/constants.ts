@@ -735,6 +735,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "/assets/projects-screenshots/ai-sql-generator/1.png",
       "/assets/projects-screenshots/ai-sql-generator/2.png",
       "/assets/projects-screenshots/ai-sql-generator/3.png",
+      "/assets/projects-screenshots/ai-sql-generator/4.png",
     ],
   },
 
