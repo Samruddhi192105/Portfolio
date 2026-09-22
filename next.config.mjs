@@ -10,6 +10,12 @@ const nextConfig = {
   // Parent folders (and extra lockfiles) can make Next infer the wrong
   // workspace root; pin it to this project so Turbopack resolves modules here.
   outputFileTracingRoot: projectRoot,
+  images: {
+    localPatterns: [
+      { pathname: "/assets/**", search: "" },
+      { pathname: "/assets/**", search: "?v=2" },
+    ],
+  },
   turbopack: {
     root: projectRoot,
   },

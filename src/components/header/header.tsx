@@ -15,6 +15,13 @@ interface HeaderProps {
 
 const Header = ({ loader }: HeaderProps) => {
   const isHome = usePathname() === "/";
+  const navItems = [
+    { label: "Profile", href: "/#about" },
+    { label: "Tech Stack", href: "/#skills" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Contact", href: "/#contact" },
+  ];
+
   return (
     <motion.header
       className={cn(
@@ -30,11 +37,35 @@ const Header = ({ loader }: HeaderProps) => {
       }}
     >
       <div className={cn(styles.bar, "flex items-center justify-between")}>
-        <Link href="/" className="flex items-center justify-center">
-          <Button variant={"link"} className="text-md">
-            {config.author}
+        <Link
+          href="/"
+          aria-label={`${config.author} home`}
+          className="flex items-center justify-center text-foreground transition-opacity hover:opacity-75"
+        >
+          <Button
+            variant="link"
+            size="icon"
+            aria-label="Home"
+            className="h-10 w-10 p-0 text-lg font-bold tracking-tight"
+          >
+            SG
           </Button>
         </Link>
+
+        <nav
+          aria-label="Primary navigation"
+          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap sm:gap-5"
+        >
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="text-[10px] font-medium uppercase tracking-[0.08em] text-white transition-colors hover:text-white sm:text-xs"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
         <div className="flex items-center">
           <FunnyThemeToggle className="w-6 h-6 mr-4 hidden md:flex" />

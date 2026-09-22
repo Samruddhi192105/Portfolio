@@ -65,7 +65,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "java",
     label: "Java",
     shortDescription:
-      "Object-oriented programming, backend development, and DSA.",
+      "Object-oriented programming and backend development.",
     color: "#ED8B00",
     icon:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
@@ -87,7 +87,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "cpp",
     label: "C++",
     shortDescription:
-      "DSA, problem solving, and object-oriented programming.",
+      "Problem solving and object-oriented programming.",
     color: "#00599C",
     icon:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
@@ -958,71 +958,6 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
   },
 
   {
-    slug: "ar-face-filter",
-    title: "AR Face Filter",
-
-    shortDescription:
-      "A real-time augmented reality face filter that tracks facial landmarks and dynamically overlays accessories using OpenCV and MediaPipe.",
-
-    overview:
-      "AR Face Filter is a real-time computer vision application that uses a webcam to detect facial landmarks and overlay augmented-reality accessories such as sunglasses, a mustache, and a hat.",
-
-    problem:
-      "AR face effects need to remain aligned with a moving face. Static image overlays do not work reliably when the user changes position, scale, or head orientation.",
-
-    solution:
-      "The application detects facial landmarks with MediaPipe and uses landmark coordinates, distance-based scaling, head tilt, rotation, and alpha blending to dynamically position the AR elements.",
-
-    features: [
-      "Real-time webcam processing",
-      "Face landmark detection",
-      "Sunglasses overlay",
-      "Mustache overlay",
-      "Hat overlay",
-      "Dynamic position adjustment",
-      "Dynamic size scaling",
-      "Head-tilt handling",
-      "Alpha blending",
-      "FPS monitoring",
-    ],
-
-    howItWorks: [
-      "The webcam captures a video frame.",
-      "The frame is converted from BGR to RGB.",
-      "MediaPipe detects facial landmarks.",
-      "Eye landmarks are used to position the sunglasses.",
-      "Mouth landmarks are used to position the mustache.",
-      "Face and forehead landmarks are used to position the hat.",
-      "Distances between landmarks are used for scaling.",
-      "Head orientation is used to calculate rotation.",
-      "The accessories are blended onto the original frame.",
-      "The final AR frame is displayed in real time.",
-    ],
-
-    techStack: [
-      "Python",
-      "OpenCV",
-      "MediaPipe",
-      "NumPy",
-      "Git",
-      "GitHub",
-    ],
-
-    technicalDetails: [
-      "Facial landmark coordinates are used as geometric reference points.",
-      "Landmark distances help scale overlays according to face size.",
-      "Head tilt is used to rotate the overlays.",
-      "Alpha blending combines transparent AR assets with webcam frames.",
-    ],
-
-    github: "https://github.com/Samruddhi192105/AR-Face-Filter",
-
-    screenshots: [
-      "/assets/projects-screenshots/ar-face-filter/1.png",
-    ],
-  },
-
-  {
     slug: "ai-agent-swarm",
     title: "AI Agent Swarm",
 
@@ -1170,64 +1105,4 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     ],
   },
 
-  {
-    slug: "expense-tracker",
-    title: "Expense Tracker",
-
-    shortDescription:
-      "A simple full-stack expense and income tracker with MySQL storage, Node.js APIs, balance tracking, and visual summaries.",
-
-    overview:
-      "Expense Tracker is a full-stack web application for recording income and expenses and tracking the resulting balance.",
-
-    problem:
-      "Manually tracking income and expenses can make it difficult to understand spending patterns and current balance.",
-
-    solution:
-      "The application provides a simple interface for entering financial records and uses a Node.js backend with MySQL to store and retrieve the data.",
-
-    features: [
-      "Add income",
-      "Add expenses",
-      "Track total balance",
-      "Separate income and expense records",
-      "MySQL database storage",
-      "Node.js backend API",
-      "Expense visualization",
-      "Simple user interface",
-    ],
-
-    howItWorks: [
-      "The user enters a title, amount, and transaction type.",
-      "The frontend sends the transaction to the backend API.",
-      "Node.js and Express process the request.",
-      "The transaction is stored in MySQL.",
-      "The frontend fetches the updated records.",
-      "The application calculates and displays the current balance and expense information.",
-    ],
-
-    techStack: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Node.js",
-      "Express.js",
-      "MySQL",
-    ],
-
-    technicalDetails: [
-      "Node.js and Express provide the backend API.",
-      "MySQL stores income and expense records.",
-      "The frontend communicates with the backend through API requests.",
-    ],
-
-    github:
-      "https://github.com/Samruddhi192105/ExpenseTracker",
-
-    screenshots: [
-      "/assets/projects-screenshots/expense-tracker/1.png",
-      "/assets/projects-screenshots/expense-tracker/2.png",
-      "/assets/projects-screenshots/expense-tracker/3.png",
-    ],
-  },
 ];

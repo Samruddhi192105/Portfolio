@@ -3,7 +3,8 @@
 import { useInView } from "motion/react";
 import React, { useRef } from "react";
 import { Button } from "../ui/button";
-import { SiGithub, SiLeetcode, SiInstagram } from "react-icons/si";
+import { SiGithub, SiInstagram } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 import { config } from "@/data/config";
 import Link from "next/link";
 
@@ -14,9 +15,9 @@ const BUTTONS = [
     icon: <SiGithub size={"24"} color={"#fff"} />,
   },
   {
-    name: "LeetCode",
-    href: config.social.leetcode,
-    icon: <SiLeetcode size={"24"} color={"#fff"} />,
+    name: "LinkedIn",
+    href: config.social.linkedin,
+    icon: <FaLinkedin size={"24"} color={"#fff"} />,
   },
   {
     name: "Instagram",

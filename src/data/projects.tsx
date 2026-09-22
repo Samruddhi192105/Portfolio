@@ -134,6 +134,7 @@ export type Project = {
   id: string;
   category: string;
   title: string;
+  description: string;
   src: string;
   screenshots: string[];
   skills: {
@@ -154,6 +155,8 @@ const projects: Project[] = [
     id: "ai-sql-generator",
     category: "AI Developer Tool",
     title: "AI SQL Generator",
+    description:
+      "AI SQL Generator is an AI-powered developer tool that converts natural-language requirements into schema-aware SQL queries. It reads available tables and columns from PostgreSQL, sends that context to a locally running Ollama Qwen2.5-Coder model, and returns queries that are grounded in the selected database structure. The Spring Boot backend also handles authentication, query history, validation, and protection against unsafe or invalid SQL inputs.",
 
     src: `${BASE_PATH}/ai-sql-generator/1.png`,
 
@@ -265,6 +268,8 @@ const projects: Project[] = [
     id: "ai-agent-swarm",
     category: "AI Engineering",
     title: "AI Agent Swarm",
+    description:
+      "AI Agent Swarm is a multi-agent software engineering system where specialized agents collaborate across the software development lifecycle. A Spring Boot backend coordinates separate planning, coding, testing, and review stages, allowing each agent to focus on a specific responsibility. Generated project files can be executed in an isolated Docker environment, while the testing and review agents identify build failures, missing requirements, and maintainability issues before the workflow is completed.",
 
     src: `${BASE_PATH}/ai-agent-swarm/1.png`,
 
@@ -372,6 +377,8 @@ const projects: Project[] = [
     id: "securedoc",
     category: "Secure Document Management",
     title: "SecureDoc Manager",
+    description:
+      "SecureDoc Manager provides a private, organized space for certificates, resumes, IDs, and other important documents. Users can upload, search, rename, replace, tag, and delete files while keeping related documents easy to find. Supabase authentication, Storage, and Row Level Security work together to ensure that each user can access only their own documents, with document versions supported for safer updates and better organization.",
 
     src: `${BASE_PATH}/securedoc/1.png`,
 
@@ -460,6 +467,8 @@ const projects: Project[] = [
     id: "multimodal-rag",
     category: "Generative AI",
     title: "Multimodal RAG",
+    description:
+      "Multimodal RAG is a retrieval-augmented generation application for PDF documents containing both text and visual information. It extracts text and images with PyMuPDF, represents visual content with CLIP embeddings, and stores searchable content in ChromaDB. When a user asks a question, the system retrieves the most relevant document context and sends it to Gemini so the response is grounded in the source material instead of relying only on general model knowledge.",
 
     src: `${BASE_PATH}/multimodal-rag/1.png`,
 
@@ -545,6 +554,8 @@ const projects: Project[] = [
     id: "densepose",
     category: "Computer Vision",
     title: "DensePose Human Body Surface Mapper",
+    description:
+      "DensePose Human Body Surface Mapper is a computer vision application that maps pixels of a person’s body to a predefined human surface representation. It uses Detectron2 and DensePose to process images and videos, then produces visual outputs such as body-part maps, overlays, IUV representations, and analysis data. A FastAPI service exposes the processing workflow, while Docker and optional CI/CD support make the project easier to run consistently across environments.",
 
     src: `${BASE_PATH}/densepose/1.png`,
 
@@ -635,6 +646,8 @@ const projects: Project[] = [
     id: "nurse-management",
     category: "Full-Stack Application",
     title: "Nurse Management System",
+    description:
+      "Nurse Management System is a full-stack staffing application designed to coordinate healthcare staffing and shift operations. It provides separate workflows for Admin, Hospital, and Agency users, allowing organizations to manage staffing requirements, nurse assignments, schedules, and related operational data. The Next.js interface is backed by Supabase authentication and Row Level Security so each role receives the appropriate access to the information and actions needed for its workflow.",
 
     src: `${BASE_PATH}/nurse-management/1.png`,
 
@@ -708,183 +721,6 @@ const projects: Project[] = [
             preventing duplicate shifts. The frontend uses Next.js, Tailwind
             CSS, and shadcn/ui with Supabase handling authentication and
             database access.
-          </p>
-        </div>
-      );
-    },
-  },
-
-  /* =========================================================
-     7. AR FACE FILTER
-     ========================================================= */
-
-  {
-    id: "ar-face-filter",
-    category: "Computer Vision",
-    title: "AR Face Filter",
-
-    src: `${BASE_PATH}/ar-face-filter/1.png`,
-
-    screenshots: [
-      `${BASE_PATH}/ar-face-filter/1.png`,
-    ],
-
-    skills: {
-  frontend: [
-    PROJECT_SKILLS.python,
-    PROJECT_SKILLS.opencv,
-  ],
-  backend: [
-    PROJECT_SKILLS.mediapipe,
-    PROJECT_SKILLS.numpy,
-  ],
-},
-
-    live: "#",
-
-    github:
-      "https://github.com/Samruddhi192105/AR-Face-Filter",
-
-    get content() {
-      return (
-        <div>
-          <TypographyP className="text-center font-mono text-2xl">
-            Real-time augmented-reality face filters.
-          </TypographyP>
-
-          <TypographyP className="font-mono">
-            AR Face Filter is a computer vision project that applies
-            augmented-reality accessories to a detected face in real time.
-            The project uses OpenCV and MediaPipe for face detection and
-            landmark tracking.
-          </TypographyP>
-
-          <ProjectsLinks
-            live={this.live}
-            repo={this.github}
-          />
-
-          <TypographyH3 className="my-4 mt-8">
-            Real-time face tracking
-          </TypographyH3>
-
-          <p className="mb-2 font-mono">
-            Facial landmarks are used to determine the position of important
-            points on the face so virtual accessories can be positioned
-            relative to the user's face.
-          </p>
-
-          <SlideShow
-            images={[
-              `${BASE_PATH}/ar-face-filter/1.png`,
-            ]}
-          />
-
-          <TypographyH3 className="my-4 mt-8">
-            Interactive filters
-          </TypographyH3>
-
-          <p className="mb-2 font-mono">
-            The project demonstrates real-time overlays such as sunglasses,
-            hats, and moustaches using webcam input.
-          </p>
-        </div>
-      );
-    },
-  },
-
-  /* =========================================================
-     8. EXPENSE TRACKER
-     ========================================================= */
-
-  {
-    id: "expense-tracker",
-    category: "Full-Stack Web Application",
-    title: "Expense Tracker",
-
-    src: `${BASE_PATH}/expense-tracker/1.png`,
-
-    screenshots: [
-      `${BASE_PATH}/expense-tracker/1.png`,
-      `${BASE_PATH}/expense-tracker/2.png`,
-      `${BASE_PATH}/expense-tracker/3.png`,
-    ],
-
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.html,
-        PROJECT_SKILLS.css,
-        PROJECT_SKILLS.javascript,
-      ],
-
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.mysql,
-      ],
-    },
-
-    live: "#",
-
-    github:
-      "https://github.com/Samruddhi192105/ExpenseTracker",
-
-    get content() {
-      return (
-        <div>
-          <TypographyP className="text-center font-mono text-2xl">
-            Track income, expenses, budgets, and financial activity.
-          </TypographyP>
-
-          <TypographyP className="font-mono">
-            Expense Tracker is a full-stack web application that helps users
-            manage daily income and expenses. It maintains financial records
-            in a MySQL database and displays updated information through a
-            simple web interface.
-          </TypographyP>
-
-          <ProjectsLinks
-            live={this.live}
-            repo={this.github}
-          />
-
-          <TypographyH3 className="my-4 mt-8">
-            Income and expense management
-          </TypographyH3>
-
-          <p className="mb-2 font-mono">
-            Users can add income and expense entries by providing details such
-            as title, amount, and transaction type. The application maintains
-            separate income and expense records and calculates the total
-            balance.
-          </p>
-
-          <SlideShow
-            images={[
-              `${BASE_PATH}/expense-tracker/1.png`,
-              `${BASE_PATH}/expense-tracker/2.png`,
-              `${BASE_PATH}/expense-tracker/3.png`,
-            ]}
-          />
-
-          <TypographyH3 className="my-4 mt-8">
-            Backend API and database
-          </TypographyH3>
-
-          <p className="mb-2 font-mono">
-            The frontend communicates with a Node.js and Express.js backend
-            through APIs. The backend stores and retrieves transaction data
-            from MySQL, allowing the frontend to display updated financial
-            information dynamically.
-          </p>
-
-          <TypographyH3 className="my-4 mt-8">
-            Budget and visualization
-          </TypographyH3>
-
-          <p className="mb-2 font-mono">
-            The application also includes monthly budget management and
-            visualizations that help users understand their spending activity.
           </p>
         </div>
       );

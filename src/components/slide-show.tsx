@@ -27,24 +27,27 @@ const spring = { type: "spring", stiffness: 320, damping: 30 } as const;
 const Frame = ({
   image,
   onZoom,
+  enableZoom,
   priority,
   onImageLoad,
 }: {
   image: string;
-  onZoom: () => void;
+  onZoom?: () => void;
+  enableZoom: boolean;
   priority?: boolean;
   onImageLoad?: () => void;
 }) => (
-  <motion.button
-    type="button"
-    onClick={onZoom}
+  <motion.div
+    onClick={enableZoom ? onZoom : undefined}
     initial="idle"
     animate="idle"
-    whileHover="hover"
-    whileTap={{ scale: 0.992 }}
+    whileHover={enableZoom ? "hover" : undefined}
+    whileTap={enableZoom ? { scale: 0.992 } : undefined}
     transition={spring}
-    aria-label="Open screenshot"
-    className="group/frame relative block w-full cursor-zoom-in overflow-hidden rounded-xl border border-border outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    role={enableZoom ? "button" : undefined}
+    tabIndex={enableZoom ? 0 : undefined}
+    aria-label={enableZoom ? "Open screenshot" : undefined}
+    className={`group/frame relative block w-full overflow-hidden rounded-xl border border-border ${enableZoom ? "cursor-zoom-in outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background" : ""}`}
   >
     <Image
       src={image}
@@ -58,21 +61,29 @@ const Frame = ({
     />
 
     {/* zoom affordance — revealed on hover only, never blurs the image */}
-    <motion.span
-      variants={{
-        idle: { opacity: 0, y: 8, scale: 0.96 },
-        hover: { opacity: 1, y: 0, scale: 1 },
-      }}
-      transition={spring}
-      className="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/55 px-3 py-1.5 text-xs font-mono text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md"
-    >
-      <Maximize2 className="h-3.5 w-3.5" strokeWidth={2} />
-      Expand
-    </motion.span>
-  </motion.button>
+    {enableZoom && (
+      <motion.span
+        variants={{
+          idle: { opacity: 0, y: 8, scale: 0.96 },
+          hover: { opacity: 1, y: 0, scale: 1 },
+        }}
+        transition={spring}
+        className="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/55 px-3 py-1.5 text-xs font-mono text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md"
+      >
+        <Maximize2 className="h-3.5 w-3.5" strokeWidth={2} />
+        Expand
+      </motion.span>
+    )}
+  </motion.div>
 );
 
-const SlideShow = ({ images }: { images: string[] }) => {
+const SlideShow = ({
+  images,
+  enableZoom = true,
+}: {
+  images: string[];
+  enableZoom?: boolean;
+}) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const isOpen = selectedIndex !== null;
   const multiple = images.length > 1;
@@ -131,8 +142,9 @@ const SlideShow = ({ images }: { images: string[] }) => {
               <SplideSlide key={image}>
                 <Frame
                   image={image}
+                  enableZoom={enableZoom}
                   priority={idx === 0}
-                  onZoom={() => setSelectedIndex(idx)}
+                  onZoom={enableZoom ? () => setSelectedIndex(idx) : undefined}
                   onImageLoad={remeasure}
                 />
               </SplideSlide>
@@ -160,7 +172,12 @@ const SlideShow = ({ images }: { images: string[] }) => {
         </Splide>
       ) : (
         <div className="my-2">
-          <Frame image={images[0]} priority onZoom={() => setSelectedIndex(0)} />
+          <Frame
+            image={images[0]}
+            enableZoom={enableZoom}
+            priority
+            onZoom={enableZoom ? () => setSelectedIndex(0) : undefined}
+          />
         </div>
       )}
 

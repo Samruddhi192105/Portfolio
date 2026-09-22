@@ -21,7 +21,6 @@ const config = {
     "Generative AI",
     "AI",
     "GitHub",
-    "LeetCode",
   ],
   author: "Samruddhi Ghawade",
   email: "ghawadesamruddhi19@gmail.com",
@@ -40,7 +39,6 @@ const config = {
     instagram: "https://www.instagram.com/samruddhighawade/",
     facebook: "",
     github: "https://github.com/Samruddhi192105",
-    leetcode: "https://leetcode.com/u/Samruddhi_Gh/",
   },
 };
 export { config };

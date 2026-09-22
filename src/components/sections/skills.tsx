@@ -1,33 +1,47 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import { motion } from "motion/react";
 import SectionWrapper from "../ui/section-wrapper";
 import { SectionHeader } from "./section-header";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { TECH_STACK_GROUPS, type Skill } from "@/data/constants";
 import { usePerfProfile } from "@/hooks/use-perf-profile";
 import { cn } from "@/lib/utils";
 
-function SkillChip({ skill }: { skill: Skill }) {
+function SkillChip({ skill, index }: { skill: Skill; index: number }) {
   return (
-    <li
-      style={{ "--skill": skill.color } as CSSProperties}
-      className={cn(
-        "flex items-center gap-2 rounded-full border border-border/60 bg-background/60 px-3 py-1.5",
-        "text-sm text-foreground/90 backdrop-blur-sm",
-        "transition-colors hover:border-[var(--skill)] hover:bg-secondary/60"
-      )}
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={skill.icon}
-        alt=""
-        width={16}
-        height={16}
-        loading="lazy"
-        className="size-4 object-contain"
-      />
-      <span>{skill.label}</span>
-    </li>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <motion.li
+          style={{ "--skill": skill.color } as CSSProperties}
+          initial={{ opacity: 0, y: 12, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          whileHover={{ y: -3, scale: 1.04 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.35, delay: index * 0.035, ease: "easeOut" }}
+          className={cn(
+            "flex cursor-help items-center gap-2 rounded-full border border-border/60 bg-background/60 px-3 py-1.5",
+            "text-sm text-foreground/90 backdrop-blur-sm",
+            "transition-colors hover:border-[var(--skill)] hover:bg-secondary/60"
+          )}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={skill.icon}
+            alt=""
+            width={16}
+            height={16}
+            loading="lazy"
+            className="size-4 object-contain"
+          />
+          <span>{skill.label}</span>
+        </motion.li>
+      </TooltipTrigger>
+      <TooltipContent side="top" className="max-w-xs text-center">
+        {skill.shortDescription}
+      </TooltipContent>
+    </Tooltip>
   );
 }
 
@@ -43,8 +57,12 @@ function HtmlStack() {
             {group.title}
           </h3>
           <ul className="mt-4 flex flex-wrap gap-2">
-            {group.skills.map((skill) => (
-              <SkillChip key={`${group.title}-${skill.name}`} skill={skill} />
+            {group.skills.map((skill, index) => (
+              <SkillChip
+                key={`${group.title}-${skill.name}`}
+                skill={skill}
+                index={index}
+              />
             ))}
           </ul>
         </article>

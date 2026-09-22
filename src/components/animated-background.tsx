@@ -21,7 +21,6 @@ const KEYBOARD_SKILLS: Skill[] = [
   // Languages
   SKILLS[SkillNames.JAVA],
   SKILLS[SkillNames.JAVASCRIPT],
-  SKILLS[SkillNames.CPP],
   SKILLS[SkillNames.PYTHON],
 
   // Frontend
@@ -39,8 +38,6 @@ const KEYBOARD_SKILLS: Skill[] = [
 
   // Databases
   SKILLS[SkillNames.POSTGRESQL],
-  SKILLS[SkillNames.MYSQL],
-  SKILLS[SkillNames.MONGODB],
   SKILLS[SkillNames.SUPABASE],
 
   // Tools / DevOps
@@ -49,7 +46,6 @@ const KEYBOARD_SKILLS: Skill[] = [
   SKILLS[SkillNames.GIT],
   SKILLS[SkillNames.GITHUB],
   SKILLS[SkillNames.GITHUBACTIONS],
-  SKILLS[SkillNames.VERCEL],
 
   // AI / GenAI
   SKILLS[SkillNames.OLLAMA],
@@ -59,12 +55,6 @@ const KEYBOARD_SKILLS: Skill[] = [
   SKILLS[SkillNames.CLIP],
   SKILLS[SkillNames.DENSEPOSE],
   SKILLS[SkillNames.OPENCV],
-
-  // Development tools
-  SKILLS[SkillNames.VSCODE],
-  SKILLS[SkillNames.CURSOR],
-  SKILLS[SkillNames.FIGMA],
-  SKILLS[SkillNames.CANVA],
 ];
 
 type SplineColor = {
@@ -93,6 +83,7 @@ type SplineMat = {
 
 type SplineMesh = {
   name?: string;
+  visible?: boolean;
   isMesh?: boolean;
   material?: SplineMat | SplineMat[];
   children?: SplineMesh[];
@@ -207,7 +198,20 @@ const KEYCAP_CONTRAST: Record<string, number> = {
 };
 
 function hideBakedLabels(app: Application) {
-  for (const name of [...BAKED_LABELS, "firebase"]) {
+  const staleLabels = new Set([...BAKED_LABELS, "firebase"]);
+  const scene = (
+    app as unknown as {
+      _scene?: SplineMesh;
+    }
+  )._scene;
+
+  if (scene) {
+    walkSplineGraph(scene, (node) => {
+      if (staleLabels.has(node.name ?? "")) node.visible = false;
+    });
+  }
+
+  for (const name of staleLabels) {
     try {
       const label = app.findObjectByName(name);
       if (label) label.visible = false;
@@ -428,7 +432,6 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
     return [
       createSectionTimeline("#skills", "skills", "hero"),
       createSectionTimeline("#projects", "projects", "skills", "top 70%"),
-      createSectionTimeline("#leetcode", "projects", "projects", "top 50%"),
       createSectionTimeline("#contact", "contact", "projects", "top 30%"),
     ].filter(Boolean) as gsap.core.Timeline[];
   };
