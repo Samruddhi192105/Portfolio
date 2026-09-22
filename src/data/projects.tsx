@@ -670,7 +670,7 @@ const projects: Project[] = [
   ],
 },
 
-    live: "#",
+    live: "https://nextera-code.vercel.app/",
 
     github:
       "https://github.com/Samruddhi192105/NurseManagementSystem",

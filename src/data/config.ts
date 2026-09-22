@@ -36,6 +36,7 @@ const config = {
   social: {
     twitter: "",
     linkedin: "https://www.linkedin.com/in/samruddhi-ghawade-967744327/",
+    leetcode: "https://leetcode.com/u/Samruddhi192105/",
     instagram: "https://www.instagram.com/samruddhighawade/",
     facebook: "",
     github: "https://github.com/Samruddhi192105",

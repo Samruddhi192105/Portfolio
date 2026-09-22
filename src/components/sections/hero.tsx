@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
-import { File } from "lucide-react";
+import { BriefcaseBusiness, File } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -11,7 +11,8 @@ import {
 import { usePreloader } from "../preloader";
 import { BlurIn, BoxReveal } from "../reveal-animations";
 import ScrollDownIcon from "../scroll-down-icon";
-import { SiGithub } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
+import { SiGithub, SiInstagram, SiLeetcode } from "react-icons/si";
 import { config } from "@/data/config";
 
 import SectionWrapper from "../ui/section-wrapper";
@@ -81,14 +82,24 @@ const HeroSection = () => {
                 </BlurIn>
               </div>
               <div className="mt-8 flex flex-col gap-3 w-fit">
-                <Link href="/resume" className="flex-1">
-                  <BoxReveal delay={2} width="100%" >
-                    <Button className="flex items-center gap-2 w-full">
-                      <File size={24} />
-                      <p>Resume</p>
-                    </Button>
-                  </BoxReveal>
-                </Link>
+                <div className="flex gap-3">
+                  <Link href="/resume" className="flex-1">
+                    <BoxReveal delay={2} width="100%">
+                      <Button className="flex items-center gap-2 w-full">
+                        <File size={24} />
+                        <p>Resume</p>
+                      </Button>
+                    </BoxReveal>
+                  </Link>
+                  <Link href="/#projects" className="flex-1">
+                    <BoxReveal delay={2.1} width="100%">
+                      <Button className="flex items-center gap-2 w-full">
+                        <BriefcaseBusiness size={24} />
+                        <p>View my work</p>
+                      </Button>
+                    </BoxReveal>
+                  </Link>
+                </div>
                 <div className="md:self-start flex gap-3">
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
@@ -109,10 +120,41 @@ const HeroSection = () => {
                     <Link
                       href={config.social.github}
                       target="_blank"
+                      aria-label="GitHub"
                       className="cursor-can-hover"
                     >
                       <Button variant={"outline"}>
                         <SiGithub size={24} />
+                      </Button>
+                    </Link>
+                    <Link
+                      href={config.social.linkedin}
+                      target="_blank"
+                      aria-label="LinkedIn"
+                      className="cursor-can-hover"
+                    >
+                      <Button variant={"outline"}>
+                        <FaLinkedin size={24} />
+                      </Button>
+                    </Link>
+                    <Link
+                      href={config.social.leetcode}
+                      target="_blank"
+                      aria-label="LeetCode"
+                      className="cursor-can-hover"
+                    >
+                      <Button variant={"outline"}>
+                        <SiLeetcode size={24} />
+                      </Button>
+                    </Link>
+                    <Link
+                      href={config.social.instagram}
+                      target="_blank"
+                      aria-label="Instagram"
+                      className="cursor-can-hover"
+                    >
+                      <Button variant={"outline"}>
+                        <SiInstagram size={24} />
                       </Button>
                     </Link>
                   </div>
