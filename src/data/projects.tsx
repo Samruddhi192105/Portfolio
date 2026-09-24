@@ -576,6 +576,7 @@ const projects: Project[] = [
     PROJECT_SKILLS.pytorch,
     PROJECT_SKILLS.detectron,
     PROJECT_SKILLS.densepose,
+    PROJECT_SKILLS.supabase,
     PROJECT_SKILLS.fastapi,
     PROJECT_SKILLS.docker,
     PROJECT_SKILLS.githubactions,
@@ -583,7 +584,7 @@ const projects: Project[] = [
   ],
 },
 
-    live: "#",
+    live: "https://densepose-human-body-surface-mapper.vercel.app/",
 
     github:
       "https://github.com/Samruddhi192105/densepose-human-body-surface-mapper",

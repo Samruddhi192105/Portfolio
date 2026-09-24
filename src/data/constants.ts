@@ -928,6 +928,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "DensePose",
       "PyTorch",
       "FastAPI",
+      "Supabase",
       "Next.js",
       "Docker",
       "GitHub Actions",
@@ -948,6 +949,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
 
     github:
       "https://github.com/Samruddhi192105/densepose-human-body-surface-mapper",
+
+    live: "https://densepose-human-body-surface-mapper.vercel.app/",
 
     screenshots: [
       "/assets/projects-screenshots/densepose/1.png",
