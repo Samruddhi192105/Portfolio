@@ -39,6 +39,7 @@ const PROJECT_SKILLS = {
 
   // Frontend
   javascript: skill("JavaScript", "JS"),
+  typescript: skill("TypeScript", "TS"),
   html: skill("HTML", "HTML"),
   css: skill("CSS", "CSS"),
   react: skill("React", "R"),
@@ -52,6 +53,7 @@ const PROJECT_SKILLS = {
 
   // Databases / Backend Services
   postgresql: skill("PostgreSQL", "PG"),
+  mongodb: skill("MongoDB", "MDB"),
   mysql: skill("MySQL", "SQL"),
   supabase: skill("Supabase", "SUPA"),
 
@@ -454,6 +456,56 @@ const projects: Project[] = [
             only their own data, while controlled access is used for stored
             files.
           </p>
+        </div>
+      );
+    },
+  },
+
+  {
+    id: "gitlite",
+    category: "Version Control",
+    title: "GitLite",
+    description:
+      "GitLite is a browser-based version-control platform powered by a Java engine and a Next.js application. Users can create isolated repositories, browse and edit files, stage changes, commit snapshots, and manage branches without installing Git or a local CLI. MongoDB stores account and repository metadata, while repository files and snapshots live on the filesystem. Desktop Chrome and Edge also support direct folder Clone, Push, and Pull through the File System Access API.",
+
+    src: `${BASE_PATH}/gitlite/1.png`,
+    screenshots: [
+      `${BASE_PATH}/gitlite/1.png`,
+      `${BASE_PATH}/gitlite/2.png`,
+      `${BASE_PATH}/gitlite/3.png`,
+    ],
+
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.typescript,
+        PROJECT_SKILLS.tailwind,
+      ],
+      backend: [
+        PROJECT_SKILLS.java,
+        PROJECT_SKILLS.mongodb,
+        PROJECT_SKILLS.node,
+        PROJECT_SKILLS.githubactions,
+      ],
+    },
+
+    live: "https://gitlite-uwx8.onrender.com/",
+    github: "https://github.com/Samruddhi192105/GitLite",
+
+    get content() {
+      return (
+        <div>
+          <TypographyP className="text-center font-mono text-2xl">
+            Browser-based version control, powered by a Java engine.
+          </TypographyP>
+          <TypographyP className="font-mono">
+            Create repositories, browse and edit files, stage changes, commit
+            snapshots, and manage branches from the GitLite website. For local
+            folders, desktop Chrome and Edge support direct Clone, Push, and
+            Pull after the user grants folder access.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
         </div>
       );
     },

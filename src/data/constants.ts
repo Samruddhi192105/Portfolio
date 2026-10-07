@@ -653,6 +653,73 @@ export type ProjectDetail = {
 
 export const PROJECT_DETAILS: ProjectDetail[] = [
   {
+    slug: "gitlite",
+    title: "GitLite",
+    shortDescription:
+      "A browser-based version-control platform with a Java engine for isolated repositories, file browsing, staging, commits, and branches.",
+    overview:
+      "GitLite combines a Java version-control engine with a Next.js application for working with repositories through a website. MongoDB stores account and repository metadata, while repository files and commit snapshots are stored on the filesystem. Users can work with repositories in the browser without installing Git or the optional CLI.",
+    problem:
+      "Version-control workflows can be difficult to access when users need to install command-line tools or configure a local environment. GitLite makes core repository operations available through a browser while keeping each account's repositories isolated.",
+    solution:
+      "The application provides registration and sign-in, owner-scoped repository APIs, a file workspace, and browser-based version-control controls. Desktop Chrome and Edge can also synchronize a user-selected local folder through the File System Access API.",
+    features: [
+      "MongoDB-backed registration and sign-in with bcrypt password hashes and signed HTTP-only sessions",
+      "Owner-scoped repository list, create, and read APIs",
+      "Separate filesystem roots for each account's repositories",
+      "Upload projects and files, browse folders, edit, rename, and delete files",
+      "Stage changes, create commits, create and switch branches, and check out commits",
+      "Clone, Push, and Pull a selected local folder in desktop Chrome and Edge",
+      "Nested staged files and same-named files in different directories stay distinct in snapshots",
+      "Checkout refuses to overwrite staged, modified, or untracked working files",
+      "Java integration tests and CI checks for Java, TypeScript, and the production frontend build",
+    ],
+    howItWorks: [
+      "Users register, then sign in to create an authenticated session.",
+      "The application lists and creates repositories scoped to the signed-in owner.",
+      "Repository files can be uploaded, browsed, and edited in the browser.",
+      "Users stage changes and create commits, then manage branches and check out commits.",
+      "In desktop Chrome and Edge, users can grant access to a local folder to clone, push, or pull repository files.",
+      "The selected folder handle and sync baseline are stored in that browser's IndexedDB and are not shared across devices.",
+    ],
+    techStack: [
+      "Java 21",
+      "Next.js 14",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Node.js",
+      "Filesystem storage",
+      "bcrypt",
+      "HTTP-only sessions",
+      "File System Access API",
+      "IndexedDB",
+      "GitHub Actions",
+    ],
+    technicalDetails: [
+      "The Java engine manages repository version-control operations and snapshots.",
+      "MongoDB stores account and repository metadata; repository files and snapshots are stored on the filesystem.",
+      "Repository API access checks ownership before reading or changing repository contents.",
+      "Browser uploads support batches of up to 10,000 files and 100 MB; larger folders are split into sequential batches.",
+      "Direct folder Clone, Push, and Pull support up to 100,000 files / 2 GB per sync in desktop Chrome and Edge.",
+      "The optional CLI wrapper is for local development; normal repository work is available through the website.",
+    ],
+    limitations: [
+      "Direct folder Clone, Push, and Pull require desktop Chrome or Edge and explicit read/write permission for a user-selected folder.",
+      "Browsers without direct folder access can upload and download files individually through the repository viewer.",
+      "Browser folder handles and sync baselines are not shared across devices.",
+      "Merge support, cross-account repository sharing, pull requests, issue tracking, CI workflows, and AI features are not implemented.",
+    ],
+    github: "https://github.com/Samruddhi192105/GitLite",
+    live: "https://gitlite-uwx8.onrender.com/",
+    screenshots: [
+      "/assets/projects-screenshots/gitlite/1.png",
+      "/assets/projects-screenshots/gitlite/2.png",
+      "/assets/projects-screenshots/gitlite/3.png",
+    ],
+  },
+  {
     slug: "ai-sql-generator",
     title: "AI SQL Generator",
 

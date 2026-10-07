@@ -36,7 +36,7 @@ const ExperienceSection = () => {
                       {String(index + 1).padStart(2, "0")}
                     </div>
 
-                    <div className="rounded-2xl border border-border/60 border-l-2 border-l-foreground/30 bg-secondary/20 p-5 backdrop-blur-sm transition-colors duration-300 group-hover:border-l-foreground sm:p-6">
+                    <div className="pointer-events-auto rounded-2xl border border-border/60 border-l-2 border-l-foreground/30 bg-secondary/20 p-5 backdrop-blur-xl transition-colors duration-300 group-hover:border-l-foreground sm:p-6">
                       <div className="mb-6 flex flex-col gap-4 border-b border-border/60 pb-5 sm:flex-row sm:items-start sm:justify-between">
                         <div>
                           <p className="mb-2 text-sm font-medium text-foreground/70">
