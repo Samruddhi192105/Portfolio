@@ -90,6 +90,7 @@ const PROJECT_SKILLS = {
   github: skill("GitHub", "GH"),
   githubactions: skill("GitHub Actions", "CI"),
   cicd: skill("CI/CD", "CI"),
+  render: skill("Render", "R"),
 };
 
 const ProjectsLinks = ({
@@ -372,7 +373,98 @@ const projects: Project[] = [
   },
 
   /* =========================================================
-     3. SECUREDOC MANAGER
+     VEYLORA AI ESCAPE ROOM
+     ========================================================= */
+
+  {
+    id: "veylora",
+    category: "AI Game Development",
+    title: "Veylora — AI Escape Room",
+    description:
+      "Veylora is an AI-powered escape room game set in a mysterious abandoned study. Players explore an interactive 3D environment, investigate objects, connect clues, solve puzzles, and race a 30-minute countdown to escape. A Retrieval-Augmented Generation (RAG) powered AI Game Master retrieves relevant room lore before generating progressive, contextual hints with Gemini, helping players move forward without immediately revealing solutions.",
+
+    src: `${BASE_PATH}/veylora/1.png`,
+
+    screenshots: [
+      `${BASE_PATH}/veylora/1.png`,
+      `${BASE_PATH}/veylora/2.png`,
+      `${BASE_PATH}/veylora/3.png`,
+    ],
+
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.typescript,
+        PROJECT_SKILLS.tailwind,
+      ],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.mongodb,
+        PROJECT_SKILLS.gemini,
+        PROJECT_SKILLS.rag,
+        PROJECT_SKILLS.render,
+      ],
+    },
+
+    live: "#",
+    github: "https://github.com/Samruddhi192105/Veylora",
+
+    get content() {
+      return (
+        <div>
+          <TypographyP className="text-center font-mono text-2xl">
+            Explore the room. Discover hidden clues. Escape before time runs out.
+          </TypographyP>
+
+          <TypographyP className="font-mono">
+            Veylora is an AI-powered escape room game set in an abandoned
+            study. Investigate the grandfather clock, diary, drawer,
+            bookshelf, safe, and exit to uncover clues and solve the puzzles.
+            The 30-minute countdown keeps the escape challenging, while the
+            AI Game Master can offer contextual hints when you get stuck.
+          </TypographyP>
+
+          <ProjectsLinks repo={this.github} />
+
+          <TypographyH3 className="my-4 mt-8">
+            Interactive escape room gameplay
+          </TypographyH3>
+
+          <p className="mb-2 font-mono">
+            Explore an interactive 3D room, inspect objects, connect
+            information from clues, and unlock hidden compartments. Progress
+            through the drawer and safe puzzles, collect the keys, and escape
+            before the timer runs out.
+          </p>
+
+          <SlideShow
+            images={[
+              `${BASE_PATH}/veylora/1.png`,
+              `${BASE_PATH}/veylora/2.png`,
+              `${BASE_PATH}/veylora/3.png`,
+            ]}
+          />
+
+          <TypographyH3 className="my-4 mt-8">
+            Contextual AI Game Master
+          </TypographyH3>
+
+          <p className="mb-2 font-mono">
+            When a player asks for help, the FastAPI backend retrieves
+            relevant game lore and builds a contextual prompt for Gemini.
+            Progressive hint levels guide discovery without giving away
+            puzzle solutions. Game sessions and events are persisted in
+            MongoDB Atlas.
+          </p>
+        </div>
+      );
+    },
+  },
+
+  /* =========================================================
+     SECUREDOC MANAGER
      ========================================================= */
 
   {

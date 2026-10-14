@@ -17,6 +17,7 @@ export enum SkillNames {
   NODEJS = "nodejs",
   EXPRESS = "express",
   SPRINGBOOT = "springboot",
+  FASTAPI = "fastapi",
   RESTAPIS = "restapis",
 
   POSTGRESQL = "postgresql",
@@ -30,6 +31,7 @@ export enum SkillNames {
   GITHUB = "github",
   GITHUBACTIONS = "githubactions",
   VERCEL = "vercel",
+  RENDER = "render",
 
   OLLAMA = "ollama",
   GEMINI = "gemini",
@@ -211,6 +213,16 @@ export const SKILLS: Record<SkillNames, Skill> = {
       "https://cdn.simpleicons.org/fastapi/009688",
   },
 
+  [SkillNames.FASTAPI]: {
+    id: 35,
+    name: "fastapi",
+    label: "FastAPI",
+    shortDescription:
+      "Building Python APIs and backend services.",
+    color: "#009688",
+    icon: "https://cdn.simpleicons.org/fastapi/009688",
+  },
+
   /* =========================
      DATABASES
      ========================= */
@@ -327,6 +339,16 @@ export const SKILLS: Record<SkillNames, Skill> = {
     color: "#FFFFFF",
     icon:
       "https://cdn.simpleicons.org/vercel/FFFFFF",
+  },
+
+  [SkillNames.RENDER]: {
+    id: 36,
+    name: "render",
+    label: "Render",
+    shortDescription:
+      "Cloud deployment and hosting for web applications and APIs.",
+    color: "#46E3B7",
+    icon: "https://cdn.simpleicons.org/render/46E3B7",
   },
 
   /* =========================
@@ -495,6 +517,7 @@ export const TECH_STACK_GROUPS: {
       SKILLS[SkillNames.SPRINGBOOT],
       SKILLS[SkillNames.NODEJS],
       SKILLS[SkillNames.EXPRESS],
+      SKILLS[SkillNames.FASTAPI],
       SKILLS[SkillNames.RESTAPIS],
     ],
   },
@@ -518,6 +541,7 @@ export const TECH_STACK_GROUPS: {
       SKILLS[SkillNames.GITHUB],
       SKILLS[SkillNames.GITHUBACTIONS],
       SKILLS[SkillNames.VERCEL],
+      SKILLS[SkillNames.RENDER],
       SKILLS[SkillNames.OLLAMA],
       SKILLS[SkillNames.GEMINI],
       SKILLS[SkillNames.LLMINTEGRATION],
